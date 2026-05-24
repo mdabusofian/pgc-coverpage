@@ -3,155 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Cover Generator - Patiya Govt. College</title>
+    <title> PGC Assignment Cover Page Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Cinzel:wght@600;700;800&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&family=Cinzel:wght@700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            -webkit-font-smoothing: antialiased;
+        }
         
-        /* Strict A4 Pixel-Perfect Canvas Dimensions */
+        /* Rigid A4 Layout Configuration with Enhanced Strict Padding Grid */
         .pdf-page-container {
             width: 794px;
             height: 1123px;
             min-width: 794px;
             min-height: 1123px;
+            max-width: 794px;
+            max-height: 1123px;
             background: #FFFFFF;
-            padding: 70px 65px 55px 65px;
+            padding: 70px 75px 60px 75px;
             box-sizing: border-box;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
         }
 
-        /* Mobile Responsive Preview Container Layout */
+        /* Premium Input Elements Grid Config */
+        .premium-input {
+            width: 100%;
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 11px 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #0F172A;
+            transition: all 0.25s ease;
+        }
+        .premium-input:focus {
+            background-color: #FFFFFF;
+            border-color: #2563EB;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+            outline: none;
+        }
+        .premium-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        /* Workspace Live Preview Sandbox Wrapper */
         .preview-wrapper {
             overflow: auto;
             display: flex;
             justify-content: center;
-            background-color: #0F172A;
-            border-radius: 16px;
-            padding: 20px 10px;
-            height: 70vh;
-            box-shadow: inset 0 4px 20px rgba(0,0,0,0.4);
+            background-color: #CBD5E1;
+            border-radius: 20px;
+            padding: 35px 15px;
+            height: 74vh;
+            box-shadow: inset 0 4px 14px rgba(15, 23, 42, 0.1);
+            border: 1px solid #94A3B8;
         }
 
         @media (min-width: 1024px) {
             .preview-wrapper {
-                height: calc(100vh - 220px);
-                padding: 30px 15px;
+                height: calc(100vh - 215px);
+                padding: 40px 20px;
             }
         }
 
-        /* Fluid Preview Zoom Matrix */
+        /* Continuous High Fidelity Scaling Engine Matrix */
         .preview-scale {
-            transform: scale(0.42);
+            transform: scale(0.40);
             transform-origin: top center;
             width: 794px;
             height: 1123px;
         }
-        @media (min-width: 400px) { .preview-scale { transform: scale(0.46); } }
-        @media (min-width: 640px) { .preview-scale { transform: scale(0.65); } }
-        @media (min-width: 1024px) { .preview-scale { transform: scale(0.55); } }
+        @media (min-width: 400px) { .preview-scale { transform: scale(0.45); } }
+        @media (min-width: 640px) { .preview-scale { transform: scale(0.62); } }
+        @media (min-width: 1024px) { .preview-scale { transform: scale(0.52); } }
         @media (min-width: 1280px) { .preview-scale { transform: scale(0.64); } }
         @media (min-width: 1536px) { .preview-scale { transform: scale(0.72); } }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between overflow-x-hidden">
 
     <div class="w-full flex flex-col">
         
-        <header class="w-full bg-slate-900 border-b border-slate-800 p-4 md:p-6 text-center">
-            <h1 class="text-lg md:text-2xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-200 to-amber-400 uppercase">
-                Patiya Govt College
+        <header class="w-full bg-white border-b border-slate-200 p-5 text-center shadow-xs">
+            <h1 class="text-2xl font-black tracking-tight text-slate-900 uppercase font-['Montserrat']">
+                Patiya Govt. College
             </h1>
-            <p class="text-xs md:text-sm text-slate-400 font-semibold tracking-wider uppercase mt-0.5">
+            <p class="text-xs font-black text-amber-700 tracking-widest uppercase mt-1">
                 Department of Chemistry
             </p>
-            <div class="inline-block bg-slate-800/60 border border-slate-700/50 rounded-full px-4 py-1 mt-2.5">
-                <span class="text-[10px] md:text-xs font-bold text-indigo-400 tracking-widest uppercase">
-                    Assignment Cover Page Generator
+            <div class="inline-block bg-blue-50 border border-blue-100 rounded-full px-4 py-1 mt-2">
+                <span class="text-[10px] font-bold text-blue-600 tracking-wider uppercase">
+                    Assignment Cover Page Generator System
                 </span>
             </div>
         </header>
 
-        <main class="w-full max-w-[1600px] mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <main class="w-full max-w-[1680px] mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             
-            <div class="lg:col-span-5 bg-slate-900/50 border border-slate-800/80 rounded-2xl p-5 md:p-6 space-y-5">
+            <div class="lg:col-span-5 bg-white border border-slate-200 shadow-xs rounded-2xl p-5 md:p-6 space-y-5">
                 
                 <div>
-                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">Select Cover Template (5 Designs)</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2">
-                        <button onclick="switchTemplate(1)" id="btn-t1" class="text-left p-3 rounded-xl border-2 border-blue-600 bg-blue-950/40 transition-all w-full">
-                            <span class="block text-xs font-bold text-slate-200">Template 1: Modern Blocks (Navy)</span>
+                    <label class="premium-label !text-slate-400 !font-black tracking-wider mb-3">Choose a Template</label>
+                    <div class="grid grid-cols-1 gap-2">
+                        <button onclick="switchTemplate(1)" id="btn-t1" class="text-left p-3.5 rounded-xl border-2 border-blue-600 bg-blue-50/60 transition-all w-full">
+                            <span class="block text-xs font-bold text-blue-950">Template 1</span>
                         </button>
-                        <button onclick="switchTemplate(2)" id="btn-t2" class="text-left p-3 rounded-xl border-2 border-slate-800 hover:border-slate-700 bg-slate-950/20 transition-all w-full">
-                            <span class="block text-xs font-bold text-slate-200">Template 2: Clean Crest (Gold Minimal)</span>
+                        <button onclick="switchTemplate(2)" id="btn-t2" class="text-left p-3.5 rounded-xl border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50/50 transition-all w-full">
+                            <span class="block text-xs font-bold text-slate-700">Template 2</span>
                         </button>
-                        <button onclick="switchTemplate(3)" id="btn-t3" class="text-left p-3 rounded-xl border-2 border-slate-800 hover:border-slate-700 bg-slate-950/20 transition-all w-full">
-                            <span class="block text-xs font-bold text-slate-200">Template 3: Classic Line (Academic)</span>
+                        <button onclick="switchTemplate(3)" id="btn-t3" class="text-left p-3.5 rounded-xl border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50/50 transition-all w-full">
+                            <span class="block text-xs font-bold text-slate-700">Template 3</span>
                         </button>
-                        <button onclick="switchTemplate(4)" id="btn-t4" class="text-left p-3 rounded-xl border-2 border-slate-800 hover:border-slate-700 bg-slate-950/20 transition-all w-full">
-                            <span class="block text-xs font-bold text-slate-200">Template 4: Emerald Crest (Luxury)</span>
+                        <button onclick="switchTemplate(4)" id="btn-t4" class="text-left p-3.5 rounded-xl border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50/50 transition-all w-full">
+                            <span class="block text-xs font-bold text-slate-700">Template 4</span>
                         </button>
-                        <button onclick="switchTemplate(5)" id="btn-t5" class="text-left p-3 rounded-xl border-2 border-slate-800 hover:border-slate-700 bg-slate-950/20 transition-all w-full">
-                            <span class="block text-xs font-bold text-slate-200">Template 5: Slate Monograph (Vintage)</span>
+                        <button onclick="switchTemplate(5)" id="btn-t5" class="text-left p-3.5 rounded-xl border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50/50 transition-all w-full">
+                            <span class="block text-xs font-bold text-slate-700">Template 5</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="space-y-3.5 pt-2">
+                <div class="space-y-4">
                     <div>
-                        <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Assignment Paper Title</label>
-                        <textarea id="inTitle" oninput="syncEngine()" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500 font-medium resize-none">Determination of Volumetric Analysis, Molecular Structures and Reaction Kinetics</textarea>
+                        <label class="premium-label">Assignment Topic Title</label>
+                        <textarea id="inTitle" oninput="syncEngine()" rows="2" placeholder="Write comprehensive topic title here..." class="premium-input resize-none font-bold text-sm"></textarea>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Course Title</label>
-                            <input type="text" id="inCourseTitle" value="Physical Chemistry IV" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500">
+                            <label class="premium-label">Course Title</label>
+                            <input type="text" id="inCourseTitle" placeholder="e.g., Physical Chemistry" oninput="syncEngine()" class="premium-input">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Course Code</label>
-                            <input type="text" id="inCourseCode" value="CHEM-402" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500">
+                            <label class="premium-label">Course Code</label>
+                            <input type="text" id="inCourseCode" placeholder="e.g., CHEM-402" oninput="syncEngine()" class="premium-input">
                         </div>
                     </div>
 
-                    <div class="border-t border-slate-800/80 pt-3.5">
-                        <span class="block text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">Student Particulars</span>
-                        <input type="text" id="inStudentName" value="Md. Abu Sofian" placeholder="Student Name" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs mb-2 focus:outline-none focus:border-blue-500">
-                        <div class="grid grid-cols-2 gap-2 mb-2">
-                            <input type="text" id="inRoll" value="918273" placeholder="Roll Number" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500">
-                            <input type="text" id="inReg" value="18273645" placeholder="Registration No" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500">
+                    <div class="border-t border-slate-100 pt-4">
+                        <span class="block text-[10px] font-black text-blue-600 uppercase tracking-widest mb-3">Student Details</span>
+                        <div class="mb-3">
+                            <label class="premium-label !text-slate-400">Full Name of Student</label>
+                            <input type="text" id="inStudentName" placeholder="Enter student full name" oninput="syncEngine()" class="premium-input font-semibold">
                         </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <input type="text" id="inYear" value="4th Year" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500">
-                            <input type="text" id="inSession" value="2022-23" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500">
+                        <div class="grid grid-cols-2 gap-3 mb-3">
+                            <div>
+                                <label class="premium-label !text-slate-400">Class Roll Number</label>
+                                <input type="text" id="inRoll" placeholder="e.g., 4102" oninput="syncEngine()" class="premium-input">
+                            </div>
+                            <div>
+                                <label class="premium-label !text-slate-400">Registration No</label>
+                                <input type="text" id="inReg" placeholder="e.g., 182301..." oninput="syncEngine()" class="premium-input">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="premium-label !text-slate-400">Academic Year</label>
+                                <input type="text" id="inYear" placeholder="e.g., 4th Year" oninput="syncEngine()" class="premium-input">
+                            </div>
+                            <div>
+                                <label class="premium-label !text-slate-400">Session</label>
+                                <input type="text" id="inSession" placeholder="e.g., 2021-22" oninput="syncEngine()" class="premium-input">
+                            </div>
                         </div>
                     </div>
 
-                    <div class="border-t border-slate-800/80 pt-3.5">
-                        <span class="block text-[10px] font-bold text-amber-500 uppercase tracking-widest mb-2">Evaluator Particulars</span>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            <input type="text" id="inTeacherName" value="Dr. Rafiq Ahammed" placeholder="Instructor Name" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500">
-                            <input type="text" id="inDesignation" value="Assistant Professor" placeholder="Designation" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500">
+                    <div class="border-t border-slate-100 pt-4">
+                        <span class="block text-[10px] font-black text-amber-600 uppercase tracking-widest mb-3">Evaluator Credentials</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="premium-label !text-slate-400">Teacher Full Name</label>
+                                <input type="text" id="inTeacherName" placeholder="Enter instructor name" oninput="syncEngine()" class="premium-input font-semibold">
+                            </div>
+                            <div>
+                                <label class="premium-label !text-slate-400">Academic Designation</label>
+                                <input type="text" id="inDesignation" placeholder="e.g., Assistant Professor" oninput="syncEngine()" class="premium-input">
+                            </div>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Date of Submission</label>
-                        <input type="text" id="inDate" value="28 / 05 / 2026" oninput="syncEngine()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200 text-xs focus:outline-none focus:border-blue-500">
+                        <label class="premium-label">Submission Timeline Date</label>
+                        <input type="text" id="inDate" placeholder="e.g., 02/05/2026" oninput="syncEngine()" class="premium-input font-medium">
                     </div>
                 </div>
 
-                <button onclick="triggerPdfExport()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-500/10 transition-all uppercase text-[11px] tracking-widest pt-3">
-                    ⚡ Export Premium PDF Document
+                <button onclick="triggerPdfExport()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-md transition-all uppercase text-[11px] tracking-widest pt-1">
+                    Download Cover Page PDF
                 </button>
             </div>
 
             <div class="lg:col-span-7 w-full flex flex-col justify-center">
                 <div class="preview-wrapper">
                     <div class="preview-scale">
-                        <div id="renderTarget" class="pdf-page-container text-slate-900">
+                        <div id="renderTarget" class="pdf-page-container text-slate-900 shadow-xs">
                             </div>
                     </div>
                 </div>
@@ -160,346 +219,292 @@
         </main>
     </div>
 
-    <footer class="w-full bg-slate-900 border-t border-slate-800 py-4 px-6 text-center text-xs text-slate-400 font-medium">
+    <footer class="w-full bg-white border-t border-slate-200 py-4 px-6 text-center text-xs text-slate-500 font-medium">
         <div>
-            © 2026 Powered & Managed by 
-            <a href="https://www.facebook.com/Sufuyan.Vlog" target="_blank" class="text-indigo-400 hover:text-indigo-300 font-bold transition-all underline underline-offset-4 decoration-indigo-500/50 ml-1">
+            © 2026 Develop by 
+            <a href="https://www.facebook.com/sofian.68" target="_blank" class="text-blue-600 hover:text-blue-700 font-bold transition-all underline underline-offset-4 decoration-blue-500/30 ml-0.5">
                 Md. Abu Sofian
             </a>
         </div>
     </footer>
 
     <script>
-        // CORE SINGLE LOGO URI COMPONENT
-        const MASTER_LOGO_URL = "https://mdabusofian.github.io/pgc-coverpage/logu.jpg";
-
+        const INSTITUTION_LOGO = "mdabusofian.github.io/pgc-coverpage/logu.jpg";
         let activeTemplateId = 1;
 
-        // HARDCODED SECURE A4 TABLE SCHEMAS (ELIMINATES EMBEDDED LAYOUT DRIFT ON MOBILE EXPORTS)
+        // Clean Immutable Vector Empty-State Filler Logic
+        function fallbackCheck(value, filler = "........................................................") {
+            return value.trim() === "" ? `<span style="color: #94A3B8; font-weight: 400; letter-spacing: 0px;">${filler}</span>` : value;
+        }
+
+        // STRICT LAYOUT TEMPLATE ENGINE 
         function generateTemplate1(data) {
             return `
-            <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed;">
-                <tr>
-                    <td style="vertical-align: top; text-align: center; padding-bottom: 25px;">
-                        <h1 style="font-family: 'Playfair Display', serif; font-size: 28pt; font-weight: 700; color: #0B2545; margin: 0; letter-spacing: 0.5px;">PATIYA GOVT. COLLEGE</h1>
-                        <h2 style="font-family: 'Inter', sans-serif; font-size: 11pt; font-weight: 700; color: #B45309; letter-spacing: 2px; text-transform: uppercase; margin: 5px 0 0 0;">DEPARTMENT OF CHEMISTRY</h2>
-                        <div style="width: 100%; height: 35px; background-color: #0F172A; margin-top: 25px; line-height: 35px; text-align: center;">
-                            <span style="font-family: 'Inter', sans-serif; font-size: 10pt; font-weight: 700; color: #FFFFFF; letter-spacing: 3px; text-transform: uppercase; display: inline-block; vertical-align: middle;">ACADEMIC ASSIGNMENT</span>
+            <div style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; box-sizing: border-box;">
+                <div style="text-align: center;">
+                    <div style="display: inline-block; width: 85px; height: 85px; margin-bottom: 15px;">
+                        <img src="${INSTITUTION_LOGO}" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 28pt; font-weight: 800; color: #0F172A; margin: 0; letter-spacing: 0.5px; line-height: 1.2;">PATIYA GOVT. COLLEGE</h1>
+                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 11.5pt; font-weight: 800; color: #B45309; letter-spacing: 2.5px; text-transform: uppercase; margin: 8px 0 0 0;">DEPARTMENT OF CHEMISTRY</h2>
+                    <div style="width: 100%; height: 42px; background-color: #0F172A; margin-top: 35px; line-height: 42px; text-align: center; border-radius: 5px;">
+                        <span style="font-family: 'Inter', sans-serif; font-size: 11pt; font-weight: 800; color: #FFFFFF; letter-spacing: 3px; text-transform: uppercase; display: inline-block; vertical-align: middle;">ACADEMIC ASSIGNMENT</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; padding: 10px 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <span style="font-family: 'Inter', sans-serif; font-size: 10pt; font-weight: 700; color: #64748B; text-transform: uppercase; display: block; margin-bottom: 15px; letter-spacing: 2px;">ASSIGNMENT TOPIC TITLE</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 24pt; font-weight: 800; color: #0F172A; line-height: 1.4; margin: 0 auto 30px auto; max-width: 640px; word-wrap: break-word;">
+                        ${data.title.trim() === "" ? "<span style='color: #CBD5E1; font-style: italic; font-weight:500;'>[ ENTER TOPIC MANUSCRIPT TITLE ]</span>" : data.title}
+                    </h3>
+                    <div style="font-family: 'Inter', sans-serif; font-size: 13pt; color: #1E293B; line-height: 2.0; margin-top: 10px; font-weight: 500;">
+                        <span style="font-weight: 800; color: #0F172A;">Course Nomenclature:</span> ${fallbackCheck(data.courseTitle)} <br> 
+                        <span style="font-weight: 800; color: #0F172A;">Identification Code:</span> ${fallbackCheck(data.courseCode)}
+                    </div>
+                </div>
+
+                <div style="margin-top: auto; padding-bottom: 10px;">
+                    <div style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 50px; border-top: 2px solid #F1F5F9; padding-top: 30px;">
+                        <div style="width: 47%; text-align: left;">
+                            <h4 style="font-family: 'Montserrat', sans-serif; font-size: 11pt; font-weight: 900; color: #B45309; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; margin: 0 0 14px 0;">PREPARED BY</h4>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 2.0; color: #1E293B;">
+                                <strong style="color: #0F172A; font-weight: 700;">Student Name:</strong> ${fallbackCheck(data.studentName)}<br>
+                                <strong style="color: #0F172A; font-weight: 700;">Roll Number:</strong> ${fallbackCheck(data.roll)}<br>
+                                <strong style="color: #0F172A; font-weight: 700;">Registration:</strong> ${fallbackCheck(data.reg)}<br>
+                                <strong style="color: #0F172A; font-weight: 700;">Academic Year:</strong> ${fallbackCheck(data.year)}<br>
+                                <strong style="color: #0F172A; font-weight: 700;">Academic Session:</strong> ${fallbackCheck(data.session)}
+                            </div>
                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: middle; text-align: center; padding: 40px 0;">
-                        <span style="font-family: 'Inter', sans-serif; font-size: 9.5pt; font-weight: 600; color: #64748B; tracking: 2px; text-transform: uppercase; display: block; margin-bottom: 12px;">TOPIC / TITLE</span>
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 21pt; font-weight: 700; color: #0F172A; line-height: 1.4; margin: 0 auto 20px auto; max-width: 620px;">[ ${data.title} ]</h3>
-                        <p style="font-family: 'Inter', sans-serif; font-size: 11pt; color: #334155; margin: 0;">
-                            <span style="font-weight: 700; color: #0F172A;">Course Title:</span> ${data.courseTitle} &nbsp;|&nbsp; <span style="font-weight: 700; color: #0F172A;">Course Code:</span> ${data.courseCode}
+                        <div style="width: 47%; text-align: left;">
+                            <h4 style="font-family: 'Montserrat', sans-serif; font-size: 11pt; font-weight: 900; color: #B45309; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; margin: 0 0 14px 0;">SUBMITTED TO</h4>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 2.0; color: #1E293B;">
+                                <strong style="color: #0F172A; font-weight: 700;">Instructor Full Name:</strong> ${fallbackCheck(data.teacher)}<br>
+                                <strong style="color: #0F172A; font-weight: 700;">Faculty Rank:</strong> ${fallbackCheck(data.designation)}<br>
+                                <strong style="color: #0F172A; font-weight: 700;">Department Unit:</strong> Department of Chemistry<br>
+                                <strong style="color: #0F172A; font-weight: 700;">Institution Canvas:</strong> Patiya Govt. College
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; border-top: 1px solid #E2E8F0; padding-top: 18px;">
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
+                            DATE OF SUBMISSION: <span style="color: #0F172A; font-weight: 900;">${fallbackCheck(data.date)}</span>
                         </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: bottom; padding-bottom: 80px;">
-                        <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
-                            <tr>
-                                <td style="width: 50%; vertical-align: top; text-align: left; padding-right: 15px;">
-                                    <h4 style="font-family: 'Inter', sans-serif; font-size: 10.5pt; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 15px 0;">PREPARED BY</h4>
-                                    <table style="width: 100%; font-family: 'Inter', sans-serif; font-size: 10.5pt; line-height: 1.8;">
-                                        <tr><td style="font-weight: 700; color: #0F172A; width: 110px;">Student Name :</td><td style="color: #334155;">[ ${data.studentName} ]</td></tr>
-                                        <tr><td style="font-weight: 700; color: #0F172A;">Roll Number :</td><td style="color: #334155;">[ ${data.roll} ]</td></tr>
-                                        <tr><td style="font-weight: 700; color: #0F172A;">Registration :</td><td style="color: #334155;">[ ${data.reg} ]</td></tr>
-                                        <tr><td style="font-weight: 700; color: #0F172A;">Academic Year :</td><td style="color: #334155;">${data.year}</td></tr>
-                                        <tr><td style="font-weight: 700; color: #0F172A;">Session :</td><td style="color: #334155;">[ ${data.session} ]</td></tr>
-                                    </table>
-                                </td>
-                                <td style="width: 50%; vertical-align: top; text-align: left; padding-left: 15px;">
-                                    <h4 style="font-family: 'Inter', sans-serif; font-size: 10.5pt; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 15px 0;">SUBMITTED TO</h4>
-                                    <table style="width: 100%; font-family: 'Inter', sans-serif; font-size: 10.5pt; line-height: 1.8;">
-                                        <tr><td style="font-weight: 700; color: #0F172A; width: 100px;">Instructor :</td><td style="color: #334155;">[ ${data.teacher} ]</td></tr>
-                                        <tr><td style="font-weight: 700; color: #0F172A;">Designation :</td><td style="color: #334155;">[ ${data.designation} ]</td></tr>
-                                        <tr><td style="font-weight: 700; color: #0F172A;">Department :</td><td style="color: #334155;">Department of Chemistry</td></tr>
-                                        <tr><td style="font-weight: 700; color: #0F172A;">Institution :</td><td style="color: #334155;">Patiya Govt. College</td></tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: bottom; text-align: center; height: 30px;">
-                        <p style="font-family: 'Inter', sans-serif; font-size: 10pt; color: #64748B; text-transform: uppercase; letter-spacing: 1.5px; margin: 0;">
-                            DATE OF SUBMISSION: <span style="color: #0F172A; font-weight: 700;">[ ${data.date} ]</span>
-                        </p>
-                    </td>
-                </tr>
-            </table>`;
+                    </div>
+                </div>
+            </div>`;
         }
 
         function generateTemplate2(data) {
             return `
-            <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed;">
-                <tr>
-                    <td style="vertical-align: top; text-align: center;">
-                        <div style="width: 100%; height: 16px; background-color: #B45309; margin-bottom: 40px;"></div>
-                        <h1 style="font-family: 'Playfair Display', serif; font-size: 30pt; font-weight: 700; color: #0B2545; margin: 0; tracking: -0.5px;">PATIYA GOVT. COLLEGE</h1>
-                        <h2 style="font-family: 'Inter', sans-serif; font-size: 11pt; font-weight: 700; color: #B45309; letter-spacing: 2px; text-transform: uppercase; margin: 6px 0 25px 0;">DEPARTMENT OF CHEMISTRY</h2>
-                        <div style="display: inline-block; width: 90px; height: 90px;">
-                            <img src="${MASTER_LOGO_URL}" style="width: 100%; height: 100%; object-fit: contain;">
+            <div style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; box-sizing: border-box; border-top: 14px solid #B45309; padding-top: 20px;">
+                <div style="text-align: center;">
+                    <div style="display: inline-block; width: 90px; height: 90px; margin-bottom: 15px;">
+                        <img src="${INSTITUTION_LOGO}" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 29pt; font-weight: 800; color: #0B2545; margin: 0; tracking: 0.2px; line-height:1.2;">PATIYA GOVT. COLLEGE</h1>
+                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 11pt; font-weight: 800; color: #B45309; letter-spacing: 2.5px; text-transform: uppercase; margin: 8px 0 0 0;">DEPARTMENT OF CHEMISTRY</h2>
+                </div>
+
+                <div style="text-align: center; padding: 10px 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <span style="font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 800; color: #64748B; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 14px;">ACADEMIC DISSERTATION PAPERS</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 24pt; font-weight: 800; color: #0B2545; line-height: 1.4; margin: 0 auto; max-width: 640px; word-wrap: break-word;">
+                        ${data.title.trim() === "" ? "<span style='color: #CBD5E1; font-style: italic; font-weight:500;'>[ ENTER EXPERIMENT TOPIC DISSERTATION ]</span>" : data.title}
+                    </h3>
+                    <div style="color: #B45309; font-size: 15pt; margin: 15px 0; letter-spacing: 8px;">♦♦♦</div>
+                    <p style="font-family: 'Inter', sans-serif; font-size: 12pt; color: #334155; margin: 0; font-weight: 600;">
+                        <span style="font-weight: 800; color: #0B2545;">Course Specific:</span> ${fallbackCheck(data.courseTitle)} &nbsp;&bull;&nbsp; <span style="font-weight: 800; color: #0B2545;">Code Reference:</span> ${fallbackCheck(data.courseCode)}
+                    </p>
+                </div>
+
+                <div style="margin-top: auto; padding-bottom: 10px;">
+                    <div style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 45px; border-top: 1px solid #E2E8F0; padding-top: 25px;">
+                        <div style="width: 47%; text-align: left;">
+                            <h4 style="font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; color: #B45309; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #CBD5E1; padding-bottom: 4px; margin: 0 0 12px 0;">SCHOLAR CANDIDATE</h4>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.9; color: #334155;">
+                                <strong style="color: #0B2545; font-weight: 700;">Student Name:</strong> ${fallbackCheck(data.studentName)}<br>
+                                <strong style="color: #0B2545; font-weight: 700;">Roll Number:</strong> ${fallbackCheck(data.roll)}<br>
+                                <strong style="color: #0B2545; font-weight: 700;">Registration:</strong> ${fallbackCheck(data.reg)}<br>
+                                <strong style="color: #0B2545; font-weight: 700;">Academic Year:</strong> ${fallbackCheck(data.year)}<br>
+                                <strong style="color: #0B2545; font-weight: 700;">Session Track:</strong> ${fallbackCheck(data.session)}
+                            </div>
                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: middle; text-align: center; padding: 25px 0;">
-                        <span style="font-family: 'Inter', sans-serif; font-size: 9pt; font-weight: 700; color: #64748B; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px;">A DISSERTATION / ACADEMIC ASSIGNMENT</span>
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 23pt; font-weight: 700; color: #0B2545; line-height: 1.35; margin: 0 auto; max-width: 640px;">[ ${data.title} ]</h3>
-                        <div style="color: #B45309; font-size: 14pt; margin: 15px 0;">♦ &nbsp; ♦ &nbsp; ♦</div>
-                        <p style="font-family: 'Inter', sans-serif; font-size: 11pt; color: #475569; margin: 0;">
-                            <span style="font-weight: 600; color: #0B2545;">Course Title:</span> [ ${data.courseTitle} ] &nbsp;|&nbsp; <span style="font-weight: 600; color: #0B2545;">Course Code:</span> [ ${data.courseCode} ]
+                        <div style="width: 47%; text-align: left;">
+                            <h4 style="font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; color: #B45309; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #CBD5E1; padding-bottom: 4px; margin: 0 0 12px 0;">FACULTY REVIEWER</h4>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.9; color: #334155;">
+                                <strong style="color: #0B2545; font-weight: 700;">Instructor:</strong> ${fallbackCheck(data.teacher)}<br>
+                                <strong style="color: #0B2545; font-weight: 700;">Designation:</strong> ${fallbackCheck(data.designation)}<br>
+                                <strong style="color: #0B2545; font-weight: 700;">Department:</strong> Department of Chemistry<br>
+                                <strong style="color: #0B2545; font-weight: 700;">Institution Unit:</strong> Patiya Govt. College
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; border-top: 1px solid #E2E8F0; padding-top: 16px;">
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; color: #475569; text-transform: uppercase; margin: 0;">
+                            DATE OF SUBMISSION: <span style="color: #0B2545; font-weight: 900;">${fallbackCheck(data.date)}</span>
                         </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: bottom; padding-bottom: 70px;">
-                        <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
-                            <tr>
-                                <td style="width: 50%; vertical-align: top; text-align: left; padding-right: 20px;">
-                                    <h4 style="font-family: 'Inter', sans-serif; font-size: 10pt; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 12px 0;">PREPARED BY</h4>
-                                    <table style="width: 100%; font-family: 'Inter', sans-serif; font-size: 10.5pt; line-height: 1.8;">
-                                        <tr><td style="font-weight: 600; color: #0B2545; width: 110px;">Student Name:</td><td style="color: #475569;">[ ${data.studentName} ]</td></tr>
-                                        <tr><td style="font-weight: 600; color: #0B2545;">Roll Number:</td><td style="color: #475569;">[ ${data.roll} ]</td></tr>
-                                        <tr><td style="font-weight: 600; color: #0B2545;">Registration:</td><td style="color: #475569;">[ ${data.reg} ]</td></tr>
-                                        <tr><td style="font-weight: 600; color: #0B2545;">Academic Year:</td><td style="color: #475569;">${data.year}</td></tr>
-                                        <tr><td style="font-weight: 600; color: #0B2545;">Session:</td><td style="color: #475569;">[ ${data.session} ]</td></tr>
-                                    </table>
-                                </td>
-                                <td style="width: 50%; vertical-align: top; text-align: left; padding-left: 20px;">
-                                    <h4 style="font-family: 'Inter', sans-serif; font-size: 10pt; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 12px 0;">SUBMITTED TO</h4>
-                                    <table style="width: 100%; font-family: 'Inter', sans-serif; font-size: 10.5pt; line-height: 1.8;">
-                                        <tr><td style="font-weight: 600; color: #0B2545; width: 95px;">Instructor:</td><td style="color: #475569;">[ ${data.teacher} ]</td></tr>
-                                        <tr><td style="font-weight: 600; color: #0B2545;">Designation:</td><td style="color: #475569;">[ ${data.designation} ]</td></tr>
-                                        <tr><td style="font-weight: 600; color: #0B2545;">Department:</td><td style="color: #475569;">Department of Chemistry</td></tr>
-                                        <tr><td style="font-weight: 600; color: #0B2545;">Institution:</td><td style="color: #475569;">Patiya Govt. College</td></tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: bottom; text-align: center; height: 20px;">
-                        <p style="font-family: 'Inter', sans-serif; font-size: 10pt; color: #64748B; text-transform: uppercase; tracking: 1px; margin: 0;">
-                            DATE OF SUBMISSION: <span style="color: #0B2545; font-weight: 700;">[ ${data.date} ]</span>
-                        </p>
-                    </td>
-                </tr>
-            </table>`;
+                    </div>
+                </div>
+            </div>`;
         }
 
         function generateTemplate3(data) {
             return `
-            <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed;">
-                <tr>
-                    <td style="vertical-align: top; text-align: center; padding-bottom: 10px;">
-                        <div style="display: inline-block; width: 95px; height: 95px; margin-bottom: 25px;">
-                            <img src="${MASTER_LOGO_URL}" style="width: 100%; height: 100%; object-fit: contain;">
+            <div style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; box-sizing: border-box;">
+                <div style="text-align: center;">
+                    <div style="display: inline-block; width: 85px; height: 85px; margin-bottom: 15px;">
+                        <img src="${INSTITUTION_LOGO}" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 26pt; font-weight: 800; color: #1E3A8A; margin: 0; text-decoration: underline; text-underline-offset: 6px; line-height:1.2;">PATIYA GOVT. COLLEGE</h1>
+                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 11.5pt; font-weight: 700; color: #475569; letter-spacing: 2px; text-transform: uppercase; margin: 18px 0 0 0;">DEPARTMENT OF CHEMISTRY</h2>
+                    <div style="width: 100%; height: 1px; background-color: #475569; margin-top: 25px;"></div>
+                </div>
+
+                <div style="text-align: center; padding: 10px 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 13pt; font-weight: 900; color: #1E3A8A; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;">ASSIGNMENT TOPIC</h2>
+                    <h3 style="font-family: 'Inter', sans-serif; font-size: 21pt; font-weight: 800; color: #000000; line-height: 1.4; margin: 0 auto 25px auto; max-width: 630px; word-wrap: break-word;">
+                        ${data.title.trim() === "" ? "<span style='color: #CBD5E1; font-weight:500;'>[ THEME SYSTEM ASSIGNMENT TITLE ]</span>" : data.title}
+                    </h3>
+                    <div style="font-family: 'Inter', sans-serif; font-size: 12pt; line-height: 1.9; color: #000000; font-weight: 600;">
+                        <strong>Course Name:</strong> ${fallbackCheck(data.courseTitle)}<br>
+                        <strong> Course Code:</strong> ${fallbackCheck(data.courseCode)}
+                    </div>
+                </div>
+
+                <div style="margin-top: auto; padding-bottom: 10px;">
+                    <div style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 45px; border-top: 1.5px solid #475569; padding-top: 25px;">
+                        <div style="width: 47%; text-align: left;">
+                            <h4 style="font-family: 'Montserrat', sans-serif; font-size: 11pt; font-weight: 900; color: #1E3A8A; text-transform: uppercase; margin: 0 0 14px 0; letter-spacing:0.5px;">SUBMITTED BY:</h4>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.9; color: #000000;">
+                                <strong>Student Name:</strong> ${fallbackCheck(data.studentName)}<br>
+                                <strong>Class Roll No:</strong> ${fallbackCheck(data.roll)}<br>
+                                <strong>Registration No:</strong> ${fallbackCheck(data.reg)}<br>
+                                <strong>Academic Session:</strong> ${fallbackCheck(data.session)}<br>
+                                <strong>Academic Year:</strong> ${fallbackCheck(data.year)}
+                            </div>
                         </div>
-                        <h1 style="font-family: 'Playfair Display', serif; font-size: 26pt; font-weight: 700; color: #1E3A8A; margin: 0; text-decoration: underline; text-underline-offset: 6px;">PATIYA GOVT. COLLEGE</h1>
-                        <h2 style="font-family: 'Inter', sans-serif; font-size: 11pt; font-weight: 600; color: #475569; letter-spacing: 1px; text-transform: uppercase; margin: 12px 0 0 0;">DEPARTMENT OF CHEMISTRY</h2>
-                        <div style="width: 100%; height: 1px; background-color: #64748B; margin-top: 35px;"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: middle; text-align: center; padding: 30px 0;">
-                        <h2 style="font-family: 'Inter', sans-serif; font-size: 14pt; font-weight: 700; color: #1E3A8A; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;">ASSIGNMENT</h2>
-                        <h3 style="font-family: 'Inter', sans-serif; font-size: 19pt; font-weight: 700; color: #000000; line-height: 1.4; uppercase; margin: 0 auto 20px auto;">[ ${data.title} ]</h3>
-                        <div style="font-family: 'Inter', sans-serif; font-size: 11pt; font-style: italic; line-height: 1.6; color: #000000;">
-                            Course Title: [ ${data.courseTitle} ]<br>
-                            Course Code: [ ${data.courseCode} ]
+                        <div style="width: 47%; text-align: left;">
+                            <h4 style="font-family: 'Montserrat', sans-serif; font-size: 11pt; font-weight: 900; color: #1E3A8A; text-transform: uppercase; margin: 0 0 14px 0; letter-spacing:0.5px;">SUBMITTED TO:</h4>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.9; color: #000000;">
+                                <strong>Faculty Reviewer:</strong> ${fallbackCheck(data.teacher)}<br>
+                                <strong>Official Rank:</strong> ${fallbackCheck(data.designation)}<br>
+                                <strong>Department :</strong> Department of Chemistry<br>
+                                <strong>Institutin:</strong> Patiya Govt. College
+                            </div>
                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: bottom; padding-bottom: 80px;">
-                        <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
-                            <tr>
-                                <td style="width: 50%; vertical-align: top; text-align: left; padding-right: 20px;">
-                                    <h4 style="font-family: 'Inter', sans-serif; font-size: 11pt; font-weight: 700; color: #1E3A8A; text-transform: uppercase; margin: 0 0 12px 0;">SUBMITTED BY:</h4>
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 10.5pt; line-height: 1.8; color: #000000;">
-                                        Name: [ ${data.studentName} ]<br>
-                                        Roll No: [ ${data.roll} ]<br>
-                                        Registration No: [ ${data.reg} ]<br>
-                                        Session: [ ${data.session} ]<br>
-                                        Year/Semester: ${data.year}
-                                    </div>
-                                </td>
-                                <td style="width: 50%; vertical-align: top; text-align: left; padding-left: 20px;">
-                                    <h4 style="font-family: 'Inter', sans-serif; font-size: 11pt; font-weight: 700; color: #1E3A8A; text-transform: uppercase; margin: 0 0 12px 0;">SUBMITTED TO:</h4>
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 10.5pt; line-height: 1.8; color: #000000;">
-                                        Teacher's Name: [ ${data.teacher} ]<br>
-                                        Designation: [ ${data.designation} ]<br>
-                                        Department of Chemistry<br>
-                                        Patiya Govt. College
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: bottom; text-align: center; height: 20px;">
-                        <p style="font-family: 'Inter', sans-serif; font-size: 10.5pt; font-weight: 700; color: #475569; margin: 0;">
-                            Date of Submission: [ ${data.date} ]
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 11pt; font-weight: 800; color: #334155; margin: 0;">
+                            Date of Submission Timeline: <span style="text-decoration: underline; text-underline-offset: 4px; color:#1E3A8A;">${fallbackCheck(data.date)}</span>
                         </p>
-                    </td>
-                </tr>
-            </table>`;
+                    </div>
+                </div>
+            </div>`;
         }
 
         function generateTemplate4(data) {
             return `
-            <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed; border: 2px solid #004B49; padding: 20px;">
-                <tr>
-                    <td style="padding: 25px; vertical-align: top;">
-                        <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed;">
-                            <tr>
-                                <td style="vertical-align: top; text-align: center;">
-                                    <h1 style="font-family: 'Cinzel', serif; font-size: 25pt; font-weight: 700; color: #004B49; margin: 0; letter-spacing: 1px;">PATIYA GOVERNMENT COLLEGE</h1>
-                                    <div style="width: 60px; height: 2px; background-color: #004B49; margin: 12px auto;"></div>
-                                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 600; color: #555; letter-spacing: 3px; text-transform: uppercase; margin: 0;">DEPARTMENT OF CHEMISTRY</h2>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: middle; text-align: center; padding: 40px 0;">
-                                    <div style="display: inline-block; width: 80px; height: 80px; margin-bottom: 25px;">
-                                        <img src="${MASTER_LOGO_URL}" style="width: 100%; height: 100%; object-fit: contain;">
-                                    </div>
-                                    <span style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 600; color: #004B49; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 15px;">LABORATORY EXPERIMENT REPORT</span>
-                                    <h3 style="font-family: 'Cinzel', serif; font-size: 20pt; font-weight: 700; color: #111; line-height: 1.4; margin: 0 auto 25px auto;">${data.title}</h3>
-                                    <table style="width: auto; margin: 0 auto; font-family: 'Inter', sans-serif; font-size: 10.5pt; text-align: left; border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; padding: 8px 0;">
-                                        <tr><td style="font-weight: 700; color: #004B49; padding-right: 10px;">COURSE:</td><td style="color: #333;">${data.courseTitle} (${data.courseCode})</td></tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: bottom; padding-bottom: 50px;">
-                                    <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
-                                        <tr>
-                                            <td style="width: 50%; vertical-align: top; border-right: 1px solid #E5E7EB; padding-right: 25px;">
-                                                <span style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: #004B49; tracking: 1px; display: block; margin-bottom: 10px; text-transform: uppercase;">CANDIDATE</span>
-                                                <div style="font-family: 'Inter', sans-serif; font-size: 10pt; line-height: 1.7; color: #333;">
-                                                    <strong style="color:#000;">${data.studentName}</strong><br>
-                                                    Roll No: ${data.roll}<br>
-                                                    Reg No: ${data.reg}<br>
-                                                    Session: ${data.session} • ${data.year}
-                                                </div>
-                                            </td>
-                                            <td style="width: 50%; vertical-align: top; padding-left: 25px;">
-                                                <span style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 700; color: #004B49; tracking: 1px; display: block; margin-bottom: 10px; text-transform: uppercase;">SUPERVISOR</span>
-                                                <div style="font-family: 'Inter', sans-serif; font-size: 10pt; line-height: 1.7; color: #333;">
-                                                    <strong style="color:#000;">${data.teacher}</strong><br>
-                                                    ${data.designation}<br>
-                                                    Faculty of Science<br>
-                                                    Patiya, Chattogram
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: bottom; text-align: center; height: 15px;">
-                                    <p style="font-family: 'Montserrat', sans-serif; font-size: 9pt; font-weight: 600; color: #777; tracking: 2px; margin: 0;">
-                                        SUBMITTED ON : <span style="color: #004B49; font-weight: 700;">${data.date}</span>
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>`;
+            <div style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; box-sizing: border-box; border: 2.5px solid #004B49; padding: 40px 35px;">
+                <div style="text-align: center;">
+                    <h1 style="font-family: 'Cinzel', serif; font-size: 24pt; font-weight: 800; color: #004B49; margin: 0; letter-spacing: 0.5px; line-height:1.2;">PATIYA GOVERNMENT COLLEGE</h1>
+                    <div style="width: 80px; height: 2px; background-color: #004B49; margin: 14px auto;"></div>
+                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 10.5pt; font-weight: 800; color: #4A5568; letter-spacing: 2.5px; text-transform: uppercase; margin: 0;">DEPARTMENT OF CHEMISTRY</h2>
+                </div>
+
+                <div style="text-align: center; padding: 10px 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="display: inline-block; width: 80px; height: 80px; margin-bottom: 20px;">
+                        <img src="${INSTITUTION_LOGO}" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <span style="font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 800; color: #004B49; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 12px;">LABORATORY EXPERIMENT SPECIMEN</span>
+                    <h3 style="font-family: 'Cinzel', serif; font-size: 19pt; font-weight: 800; color: #111111; line-height: 1.4; margin: 0 auto 25px auto; max-width: 610px; word-wrap: break-word;">
+                        ${data.title.trim() === "" ? "TECHNICAL RESEARCH EXPERIMENT TOPIC" : data.title}
+                    </h3>
+                    <div style="display: inline-block; font-family: 'Inter', sans-serif; font-size: 11pt; border-top: 1px solid #CBD5E1; border-bottom: 1px solid #CBD5E1; padding: 10px 25px; color: #1A202C; font-weight: 700; margin: 0 auto;">
+                        <span style="color: #004B49;">COURSE ASSIGNMENT IDENTIFICATION:</span> ${fallbackCheck(data.courseTitle)} (${fallbackCheck(data.courseCode)})
+                    </div>
+                </div>
+
+                <div style="margin-top: auto; padding-bottom: 5px;">
+                    <div style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 40px; text-align: left; border-top: 1px solid #E2E8F0; padding-top: 25px;">
+                        <div style="width: 48%; border-right: 1px solid #E5E7EB; padding-right: 15px;">
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 900; color: #004B49; display: block; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">LAB CANDIDATE</span>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.9; color: #2D3748;">
+                                <strong style="color:#000000; font-size: 11.5pt; font-weight:700;">Name: ${fallbackCheck(data.studentName)}</strong><br>
+                                Roll Number: ${fallbackCheck(data.roll)}<br>
+                                Registration: ${fallbackCheck(data.reg)}<br>
+                                Track Session: ${fallbackCheck(data.session)} • ${fallbackCheck(data.year)}
+                            </div>
+                        </div>
+                        <div style="width: 48%; padding-left: 20px;">
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 9.5pt; font-weight: 900; color: #004B49; display: block; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">FACULTY REVIEWER</span>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.9; color: #2D3748;">
+                                <strong style="color:#000000; font-size: 11.5pt; font-weight:700;">Reviewer: ${fallbackCheck(data.teacher)}</strong><br>
+                                Designation: ${fallbackCheck(data.designation)}<br>
+                                Faculty Science Unit<br>
+                                Patiya Govt. College
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 10pt; font-weight: 800; color: #4A5568; margin: 0; letter-spacing: 1px;">
+                            Official Submission Date: <span style="color: #004B49;">${fallbackCheck(data.date)}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>`;
         }
 
         function generateTemplate5(data) {
             return `
-            <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed;">
-                <tr>
-                    <td style="vertical-align: top;">
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <tr>
-                                <td style="width: 75px; vertical-align: middle;">
-                                    <img src="${MASTER_LOGO_URL}" style="width: 65px; height: 65px; object-fit: contain;">
-                                </td>
-                                <td style="vertical-align: middle; text-align: left; padding-left: 10px;">
-                                    <h1 style="font-family: 'Montserrat', sans-serif; font-size: 21pt; font-weight: 700; color: #1E293B; margin: 0; letter-spacing: -0.5px;">PATIYA GOVT. COLLEGE</h1>
-                                    <p style="font-family: 'Inter', sans-serif; font-size: 9.5pt; font-weight: 600; color: #64748B; uppercase; tracking: 1.5px; margin: 2px 0 0 0;">FACULTY OF SCIENCE • DEPT. OF CHEMISTRY</p>
-                                </td>
-                            </tr>
-                        </table>
-                        <div style="width: 100%; height: 1.5px; background-color: #1E293B; margin-top: 20px;"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: middle; text-align: left; padding: 60px 10px;">
-                        <span style="font-family: 'Inter', sans-serif; font-size: 10pt; font-weight: 700; color: #334155; tracking: 3px; text-transform: uppercase; display: block; margin-bottom: 15px;">RE-ASSIGNMENT PORTFOLIO</span>
-                        <h2 style="font-family: 'Playfair Display', serif; font-size: 24pt; font-weight: 800; color: #0F172A; line-height: 1.3; margin: 0 0 25px 0;">${data.title}</h2>
-                        <table style="font-family: 'Inter', sans-serif; font-size: 10.5pt; color: #334155;">
-                            <tr><td style="font-weight: 700; color: #0F172A; padding: 3px 15px 3px 0;">COURSE TITLE</td><td style="border-left: 2px solid #1E293B; padding-left: 12px;">${data.courseTitle}</td></tr>
-                            <tr><td style="font-weight: 700; color: #0F172A; padding: 3px 15px 3px 0;">COURSE CODE</td><td style="border-left: 2px solid #1E293B; padding-left: 12px;">${data.courseCode}</td></tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: bottom; padding-bottom: 70px;">
-                        <table style="width: 100%; table-layout: fixed; border-collapse: collapse;">
-                            <tr>
-                                <td style="width: 50%; vertical-align: top; padding: 20px; border-radius: 8px;">
-                                    <span style="font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: #64748B; display: block; margin-bottom: 8px; tracking: 1px;">STUDENT PROFILE</span>
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 10pt; line-height: 1.7; color: #1E293B;">
-                                        Name: <strong>${data.studentName}</strong><br>
-                                        Roll No: ${data.roll}<br>
-                                        Reg No: ${data.reg}<br>
-                                        Session: ${data.session} (${data.year})
-                                    </div>
-                                </td>
-                                <td style="width: 50%; vertical-align: top; padding: 20px 20px 20px 35px;">
-                                    <span style="font-family: 'Montserrat', sans-serif; font-size: 8.5pt; font-weight: 700; color: #64748B; display: block; margin-bottom: 8px; tracking: 1px;">EVALUATED BY</span>
-                                    <div style="font-family: 'Inter', sans-serif; font-size: 10pt; line-height: 1.7; color: #1E293B;">
-                                        Name: <strong>${data.teacher}</strong><br>
-                                        Designation: ${data.designation}<br>
-                                        Patiya Govt. College
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="vertical-align: bottom; text-align: left; padding-left: 10px; height: 20px;">
-                        <div style="width: 100%; height: 1px; background-color: #E2E8F0; margin-bottom: 15px;"></div>
-                        <p style="font-family: 'Inter', sans-serif; font-size: 9.5pt; color: #64748B; margin: 0;">
-                            Date of Submission: <span style="color: #0F172A; font-weight: 700;">${data.date}</span>
+            <div style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; box-sizing: border-box; border: 4px double #334155; padding: 30px;">
+                <div style="text-align: center;">
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 25pt; font-weight: 900; color: #1E293B; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; line-height:1.2;">PATIYA GOVT. COLLEGE</h1>
+                    <p style="font-family: 'Inter', sans-serif; font-size: 10pt; font-weight: 700; color: #64748B; tracking: 3px; text-transform: uppercase; margin: 6px 0 0 0;">ESTABLISHED 1962 &bull; CHATTOGRAM</p>
+                    <div style="width: 150px; height: 1px; background-color: #334155; margin: 16px auto 0 auto;"></div>
+                </div>
+
+                <div style="text-align: center; padding: 10px 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="display: inline-block; width: 75px; height: 75px; margin-bottom: 15px;">
+                        <img src="${INSTITUTION_LOGO}" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <span style="font-family: 'Inter', sans-serif; font-size: 11pt; font-weight: 800; color: #0F172A; text-transform: uppercase; display: block; margin-bottom: 12px; letter-spacing: 1.5px;">MONOGRAPH TERM DOSSIER REPORT</span>
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 21pt; font-weight: 800; color: #0F172A; font-style: italic; line-height: 1.4; margin: 0 auto 15px auto; max-width: 600px; word-wrap: break-word;">"${data.title.trim() === "" ? "Scholar Project Title Narrative Cover" : data.title}"</h2>
+                    <div style="width: 45px; height: 1px; background-color: #94A3B8; margin: 0 auto 15px auto;"></div>
+                    <p style="font-family: 'Inter', sans-serif; font-size: 11.5pt; font-weight: 700; color: #334155; margin: 0;">
+                        Course Specimen: ${fallbackCheck(data.courseTitle)} (${fallbackCheck(data.courseCode)})
+                    </p>
+                </div>
+
+                <div style="margin-top: auto; padding-bottom: 5px;">
+                    <div style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 40px; text-align: left; border-top: 1px solid #CBD5E1; padding-top: 25px;">
+                        <div style="width: 47%;">
+                            <h3 style="font-family: 'Playfair Display', serif; font-size: 12.5pt; font-weight: 800; color: #1E293B; border-bottom: 1px solid #CBD5E1; padding-bottom: 6px; margin: 0 0 12px 0;">Undergraduate Scholar</h3>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.9; color: #334155;">
+                                <strong>Student Name:</strong> ${fallbackCheck(data.studentName)}<br>
+                                <strong>Class Roll No:</strong> ${fallbackCheck(data.roll)}<br>
+                                <strong>Registration No:</strong> ${fallbackCheck(data.reg)}<br>
+                                <strong>Session Frame:</strong> ${fallbackCheck(data.session)} • ${fallbackCheck(data.year)}
+                            </div>
+                        </div>
+                        <div style="width: 47%;">
+                            <h3 style="font-family: 'Playfair Display', serif; font-size: 12.5pt; font-weight: 800; color: #1E293B; border-bottom: 1px solid #CBD5E1; padding-bottom: 6px; margin: 0 0 12px 0;">Accepted For Evaluation</h3>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.9; color: #334155;">
+                                <strong>Instructor:</strong> ${fallbackCheck(data.teacher)}<br>
+                                <strong>Official Rank:</strong> ${fallbackCheck(data.designation)}<br>
+                                Department of Chemistry<br>
+                                Patiya Govt. College
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; border-top: 1px dashed #94A3B8; padding-top: 15px;">
+                        <p style="font-family: 'Inter', sans-serif; font-size: 10.5pt; font-weight: 600; color: #475569; margin: 0; letter-spacing: 1px;">
+                            Chronological Date: <span style="color:#0F172A; font-weight:700;">${fallbackCheck(data.date)}</span>
                         </p>
-                    </td>
-                </tr>
-            </table>`;
+                    </div>
+                </div>
+            </div>`;
         }
 
-        // VISUAL CONFIGURATION SWAP HUB
-        function switchTemplate(id) {
-            activeTemplateId = id;
-            for(let i=1; i<=5; i++) {
-                const btn = document.getElementById(`btn-t${i}`);
-                if(i === id) {
-                    btn.classList.add('border-blue-600', 'bg-blue-950/40');
-                    btn.classList.remove('border-slate-800', 'bg-slate-950/20');
-                } else {
-                    btn.classList.remove('border-blue-600', 'bg-blue-950/40');
-                    btn.classList.add('border-slate-800', 'bg-slate-950/20');
-                }
-            }
-            syncEngine();
-        }
-
-        // LIVE COMPLIANCE OVERLAY SYNCHRONIZER
+        // WORKSPACE RUNTIME SYNCHRONIZATION ENGINE
         function syncEngine() {
             const payload = {
                 title: document.getElementById('inTitle').value,
@@ -515,40 +520,61 @@
                 date: document.getElementById('inDate').value
             };
 
-            const container = document.getElementById('renderTarget');
+            let compiledHtml = "";
+            switch(activeTemplateId) {
+                case 1: compiledHtml = generateTemplate1(payload); break;
+                case 2: compiledHtml = generateTemplate2(payload); break;
+                case 3: compiledHtml = generateTemplate3(payload); break;
+                case 4: compiledHtml = generateTemplate4(payload); break;
+                case 5: compiledHtml = generateTemplate5(payload); break;
+            }
             
-            if(activeTemplateId === 1) container.innerHTML = generateTemplate1(payload);
-            else if(activeTemplateId === 2) container.innerHTML = generateTemplate2(payload);
-            else if(activeTemplateId === 3) container.innerHTML = generateTemplate3(payload);
-            else if(activeTemplateId === 4) container.innerHTML = generateTemplate4(payload);
-            else if(activeTemplateId === 5) container.innerHTML = generateTemplate5(payload);
+            document.getElementById('renderTarget').innerHTML = compiledHtml;
         }
 
-        // VECTOR GRAPHICS EXPORTER
-        function triggerPdfExport() {
-            const element = document.getElementById('renderTarget');
-            const student = document.getElementById('inStudentName').value || 'Student';
-            const filenameStr = `CoverPage_T${activeTemplateId}_${student.replace(/\s+/g, '_')}.pdf`;
+        // TEMPLATE BLUEPRINT SWITCH MATRIX
+        function switchTemplate(id) {
+            activeTemplateId = id;
+            for(let i = 1; i <= 5; i++) {
+                const btn = document.getElementById(`btn-t${i}`);
+                if(i === id) {
+                    btn.className = "text-left p-3.5 rounded-xl border-2 border-blue-600 bg-blue-50/60 transition-all w-full";
+                    btn.firstElementChild.className = "block text-xs font-bold text-blue-950";
+                } else {
+                    btn.className = "text-left p-3.5 rounded-xl border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50/50 transition-all w-full";
+                    btn.firstElementChild.className = "block text-xs font-bold text-slate-700";
+                }
+            }
+            syncEngine();
+        }
 
-            const opt = {
-                margin:       0,
-                filename:     filenameStr,
-                image:        { type: 'jpeg', quality: 1.0 },
-                html2canvas:  { 
-                    scale: 2, 
+        // ANTI-DISPLACEMENT HIGH RESOLUTION EXPORT CONTROLLER (Strict 300 DPI Rendering Matrix)
+        function triggerPdfExport() {
+            const target = document.getElementById('renderTarget');
+            const student = document.getElementById('inStudentName').value.trim() || "CoverPage";
+            const course = document.getElementById('inCourseCode').value.trim() || "Academic";
+            
+            const config = {
+                margin: 0,
+                filename: `${student.replace(/\s+/g, '_')}_${course}_Pro_Cover.pdf`,
+                image: { type: 'jpeg', quality: 1.0 },
+                html2canvas: { 
+                    scale: 3.5, // High resolution pixel mapping
                     useCORS: true, 
-                    logging: false,
                     letterRendering: true,
+                    dpi: 300,
+                    backgroundColor: '#FFFFFF',
                     width: 794,
-                    height: 1123
+                    height: 1123,
+                    scrollX: 0,
+                    scrollY: 0
                 },
-                jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' }
+                jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
             };
 
-            html2pdf().set(opt).from(element).save();
+            html2pdf().set(config).from(target).save();
         }
 
-        // LIFE CYCLE INITIAL HOOK
         window.onload = function() {
             syncEngine();
         };
